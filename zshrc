@@ -24,7 +24,9 @@ alias mmv='noglob zmv -W'
 alias gs='git status'
 alias gpr='git pull -rebase'
 
-PROMPT="[%F{80}%n%f@%F{99}%m%f] : %F{28}%3~%f %# "
+HOSTNAME_COLOR=$(python -c "import sys; print(sum([ord(x) for x in sys.argv[1]]) % 256)" `hostname -s`)
+
+PROMPT="[%F{80}%n%f@%F{$HOSTNAME_COLOR}%m%f] : %F{28}%3~%f %# "
 
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="$PATH:/Applications/Julia-0.3.10.app/Contents/Resources/julia/bin"
