@@ -24,9 +24,18 @@ alias mmv='noglob zmv -W'
 alias gs='git status'
 alias gpr='git pull -rebase'
 
-HOSTNAME_COLOR=$(python -c "import sys; print(sum([ord(x) for x in sys.argv[1]]) % 256)" `hostname -s`)
+if [[ -e /usr/local/bin/greadlink ]]; then
+    alias readlink='greadlink'
+fi
 
-PROMPT="[%F{80}%n%f@%F{$HOSTNAME_COLOR}%m%f] : %F{28}%3~%f %# "
+sum_color() {
+    python -c "import sys; print(sum([ord(x) for x in sys.argv[1]]) % 256)" $1
+}
+
+HOSTNAME_COLOR=$(sum_color `hostname -s`)
+USERNAME_COLOR=$(sum_color `whoami` )
+
+PROMPT="[%F{$USERNAME_COLOR}%n%f@%F{$HOSTNAME_COLOR}%m%f] : %F{28}%3~%f %# "
 
 PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 PATH="$PATH:/Applications/Julia-0.3.10.app/Contents/Resources/julia/bin"
