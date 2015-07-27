@@ -23,6 +23,7 @@ alias repos="cd ~/repos"
 alias mmv='noglob zmv -W'
 alias gs='git status'
 alias gpr='git pull -rebase'
+alias gpom='git push origin master'
 
 if [[ -e /usr/local/bin/greadlink ]]; then
     alias readlink='greadlink'
