@@ -38,6 +38,7 @@ filetype plugin indent on
 syntax on
 set backspace=indent,eol,start
 set number
+set hlsearch
 set autoindent
 set smartindent
 set expandtab
