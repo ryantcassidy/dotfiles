@@ -29,8 +29,16 @@ if [[ -e /usr/local/bin/greadlink ]]; then
     alias readlink='greadlink'
 fi
 
+up() {
+    for n ({1..$1}) do cd ..; done
+}
+
 sum_color() {
     python -c "import sys; print(sum([ord(x) for x in sys.argv[1]]) % 256)" $1
+}
+
+ssht() {
+    ssh $1 -t tmux a
 }
 
 HOSTNAME_COLOR=$(sum_color `hostname -s`)
