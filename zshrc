@@ -46,11 +46,6 @@ USERNAME_COLOR=$(sum_color `whoami` )
 
 PROMPT="[%F{$USERNAME_COLOR}%n%f@%F{$HOSTNAME_COLOR}%m%f] : %F{28}%3~%f %# "
 
-PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-PATH="$PATH:/Applications/Julia-0.3.10.app/Contents/Resources/julia/bin"
-PATH="$PATH:/Applications/Racketv6.2/bin"
-export PATH
-
 zshcolors () {
 	for i in {0..255}; do echo -e "\e[38;05;${i}m${i}"; done | column -c 150 -s '  '; echo -e "\e[m"
 }

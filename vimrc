@@ -1,17 +1,16 @@
 set nocompatible
 filetype on
-filetype off " This is weird but necessary for some reason
+filetype off " This is weird but necessary for some reason for some plugin?
 
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
-" let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
-Plugin 'losingkeys/vim-niji'
+Plugin 'losingkeys/vim-niji' " Rainbow Parens
 let g:niji_matching_filetypes = ['lisp', 'clojure', 'racket', 'scheme']
-Plugin 'tpope/vim-repeat'
-Plugin 'nacitar/terminalkeys.vim'
-Plugin 'vim-scripts/paredit.vim'
+Plugin 'tpope/vim-repeat' " extend `.` to repeat more things
+Plugin 'nacitar/terminalkeys.vim' " extend support for more TERM types
+Plugin 'vim-scripts/paredit.vim' " Match parens
 Plugin 'sudar/vim-arduino-syntax'
 let g:paredit_electric_return = 0
 let g:paredit_smartjump = 1
@@ -26,6 +25,7 @@ call vundle#end()
 " W or w( : wrap (also with other wrappers)
 " S : unwrap ('split')
 
+" Recognize Racket files as Scheme
 if has("autocmd")
     au BufReadPost *.rkt,*.rktl set filetype=scheme
 endif
