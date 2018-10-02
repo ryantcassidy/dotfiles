@@ -4,10 +4,14 @@
 ## the running user's HOME folder. Then future pulls to this repo will
 ## update dotfiles in place (after a re-sourcing of the configs of course)
 
-# Macs are weird about which readlink is installed
-# TODO check if non-mac `readlink` is installed at all
+# Homebrew installed greadlink
 if [[ -e /usr/local/bin/greadlink ]] ; then
     READLINK=/usr/local/bin/greadlink
+# Mac w/o greadlink
+elif [[ "$uname" == 'Darwin' ]] ; then
+    echo "Run <brew install coreutils> to get greadlink on this system"
+    exit
+# Linux, presumably
 else
     READLINK=readlink
 fi
