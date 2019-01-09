@@ -9,13 +9,16 @@ HISTFILE=~/.zshhistory
 HISTSIZE=1000
 SAVEHIST=1000
 unsetopt CASE_GLOB
-export TERM=xterm-256color
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 # Source : http://www.rlazo.org/2010/11/18/zsh-case-insensitive-completion/
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
       'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 alias vi="vim"
+alias ls="ls -F"
+alias lsl="ls -lahF"
 alias ez="vi ~/.zshrc"
 alias vimrc="vi ~/.vimrc"
 alias sz="source ~/.zshrc"
@@ -27,6 +30,10 @@ alias gpom='git push origin master'
 
 if [[ -e /usr/local/bin/greadlink ]]; then
     alias readlink='greadlink'
+fi
+
+if [[ -e ~/.workrc ]]; then
+    source ~/.workrc
 fi
 
 up() {
