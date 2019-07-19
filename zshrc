@@ -9,6 +9,7 @@ HISTFILE=~/.zshhistory
 HISTSIZE=1000
 SAVEHIST=1000
 unsetopt CASE_GLOB
+setopt SHARE_HISTORY
 export CLICOLOR=1
 export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
@@ -17,11 +18,12 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' \
       'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 alias vi="vim"
+alias vimrc="vi ~/.vimrc"
 alias ls="ls -F"
 alias lsl="ls -lahF"
 alias ez="vi ~/.zshrc"
-alias vimrc="vi ~/.vimrc"
 alias sz="source ~/.zshrc"
+alias ew="vi ~/.workrc"
 alias repos="cd ~/repos"
 alias mmv='noglob zmv -W'
 alias gs='git status'
@@ -51,7 +53,7 @@ ssht() {
 HOSTNAME_COLOR=$(sum_color `hostname -s`)
 USERNAME_COLOR=$(sum_color `whoami` )
 
-PROMPT="[%F{$USERNAME_COLOR}%n%f@%F{$HOSTNAME_COLOR}%m%f] : %F{28}%3~%f %# "
+PROMPT="[%F{$USERNAME_COLOR}%n%f@%F{39}%m%f] : %F{28}%3~%f %# "
 
 zshcolors () {
 	for i in {0..255}; do echo -e "\e[38;05;${i}m${i}"; done | column -c 150 -s '  '; echo -e "\e[m"

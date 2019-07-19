@@ -13,11 +13,8 @@ Plugin 'luochen1990/rainbow'
 let g:rainbow_active = 1 " RAINBOW ALWAYS
 " Keys and Functionality
 Plugin 'tpope/vim-repeat' " extend `.` to repeat more things
-Plugin 'GEverding/vim-hocon'
 Plugin 'nacitar/terminalkeys.vim' " extend support for more TERM types
 Plugin 'ctrlpvim/ctrlp.vim' " File searcher
-Plugin 'tranchis/paredit.vim' " Match parens for lispy langs
-Plugin 'ensime/ensime-vim' " Scala sbt integ
 Plugin 'tpope/vim-surround' " Better bracket placement and nav
 let g:paredit_electric_return = 0
 let g:paredit_smartjump = 1
@@ -26,6 +23,8 @@ let g:paredit_full_balancing = 1
 Plugin 'sudar/vim-arduino-syntax'
 Plugin 'JuliaLang/julia-vim'
 Plugin 'derekwyatt/vim-scala'
+Plugin 'GEverding/vim-hocon'
+Plugin 'tranchis/paredit.vim' " Match parens for lispy langs
 " Colorschemes
 Plugin 'trusktr/seti.vim'
 Plugin 'sjl/badwolf'
@@ -39,9 +38,10 @@ call vundle#end()
 " W or w( : wrap (also with other wrappers)
 " S : unwrap ('split')
 
-" Recognize Racket files as Scheme
 if has(  "autocmd"  )
     au BufReadPost *.rkt,*.rktl set filetype=scheme
+    au BufRead,BufNewFile *.sbt set filetype=scala
+    autocmd FileType json syntax match Comment +\/\/.\+$+
 endif
 
 au FileType json call PareditInitBuffer()
