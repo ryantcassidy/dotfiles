@@ -41,6 +41,7 @@ call vundle#end()
 if has(  "autocmd"  )
     au BufReadPost *.rkt,*.rktl set filetype=scheme
     au BufRead,BufNewFile *.sbt set filetype=scala
+    au BufRead,BufNewFile *.workrc set syntax=vim
     autocmd FileType json syntax match Comment +\/\/.\+$+
 endif
 

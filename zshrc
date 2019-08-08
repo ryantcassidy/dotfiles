@@ -27,6 +27,8 @@ alias ew="vi ~/.workrc"
 alias repos="cd ~/repos"
 alias mmv='noglob zmv -W'
 alias gs='git status'
+alias gc='git checkout'
+alias gcm='git checkout master'
 alias gpr='git pull -rebase'
 alias gpom='git push origin master'
 
