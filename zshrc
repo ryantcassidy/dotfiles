@@ -29,8 +29,11 @@ alias mmv='noglob zmv -W'
 alias gs='git status'
 alias gc='git checkout'
 alias gcm='git checkout master'
+alias gcv='git checkout develop'
 alias gpr='git pull -rebase'
+alias gp='git pull'
 alias gpom='git push origin master'
+alias home='cd ~'
 
 if [[ -e /usr/local/bin/greadlink ]]; then
     alias readlink='greadlink'
@@ -50,6 +53,14 @@ sum_color() {
 
 ssht() {
     ssh $1 -t tmux a
+}
+
+cdl() {
+    cd $1; ls
+}
+
+cdll() {
+    cd $1; ls -laH
 }
 
 HOSTNAME_COLOR=$(sum_color `hostname -s`)
