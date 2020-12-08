@@ -27,12 +27,19 @@ alias ew="vi ~/.workrc"
 alias repos="cd ~/repos"
 alias mmv='noglob zmv -W'
 alias gs='git status'
+alias gsh='git show'
+alias ga='git add'
+alias gd='git diff'
+alias gsd='git status; git diff'
 alias gc='git checkout'
 alias gcm='git checkout master'
 alias gcv='git checkout develop'
 alias gpr='git pull -rebase'
+alias gnb='git checkout -b'
 alias gp='git pull'
 alias gpom='git push origin master'
+alias gpob='git push origin $(git rev-parse --abbrev-ref HEAD)'
+alias gpo='git push origin'
 alias home='cd ~'
 
 if [[ -e /usr/local/bin/greadlink ]]; then
